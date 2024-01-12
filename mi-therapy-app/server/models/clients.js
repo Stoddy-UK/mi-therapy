@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('./db')
 
 const Schema = mongoose.Schema
 
@@ -7,9 +7,9 @@ const clientSchema = new Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   telNum: { type: Number, required: false },
-  age: { type: String, required: ture },
-  gender: { type: String, required: ture },
-  hourlyRate: { type: Number, required: ture },
+  age: { type: String, required: true },
+  gender: { type: String, required: true },
+  hourlyRate: { type: Number, required: true },
   totalSessions: { type: Number, required: false },
   unpaidSessions: { type: Number, required: false }
 })

@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 
-function Layout ({isLoggedIn, setLoginForm}) {
+function Layout ({isLoggedIn, setLoginForm, setIsLoggedIn}) {
 
   return (
     <main>
@@ -16,9 +16,9 @@ function Layout ({isLoggedIn, setLoginForm}) {
           <div className="inner-top-bar">
             <h1>MiTherapy</h1>
             <div id="top-links">
-              <Link to="home">home</Link>
-              <Link to="me">my profile</Link>
-              <Link to="logout">logout</Link>
+              <Link className="link" to="home">home</Link>
+              <Link className="link" to="me">my profile</Link>
+              <Link className="link" to="logout">logout</Link>
             </div>
           </div> 
         }

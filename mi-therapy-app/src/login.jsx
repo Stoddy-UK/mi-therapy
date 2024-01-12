@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-function Login ({isLoggedIn, setIsLoggedIn, mock, setMock}) {
-  const [name, setName] = useState('')
+function Login ({setCurrent, setIsLoggedIn, mock, setMock}) {
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   let navigate = useNavigate();
@@ -11,19 +11,20 @@ function Login ({isLoggedIn, setIsLoggedIn, mock, setMock}) {
     e.preventDefault();
 
     const details = [{
-      name: name,
+      email: email,
       password: password
     }]
     
     const shallowMock = mock.slice();
+    const findUser = shallowMock.filter((detail) => detail.email !== details.email)
     
-    if (details.name == shallowMock.name && details.password == shallowMock.password) {
+    if (findUser.password == details.password) {
       setIsLoggedIn(true);
-      const test = isLoggedIn;
-      return navigate('home')
+      setCurrent(findUser)
     } 
-    setName('')
+    setEmail('')
     setPassword('')
+    return navigate('home')
   };
 
   return (
@@ -31,13 +32,13 @@ function Login ({isLoggedIn, setIsLoggedIn, mock, setMock}) {
     <form className="form" onSubmit={tryLogin}>
       <p>Please enter your details below to login.</p>
       <div className="input-field">
-      <label className="form-label">Name</label>
+      <label className="form-label">Email</label>
       <input 
-        onChange={(e)=>{setName(e.target.value)}}
-        name="name"
-        value={name}
-        type="text" 
-        placeholder="enter full name..."
+        onChange={(e)=>{setEmail(e.target.value)}}
+        name="email"
+        value={email}
+        type="email" 
+        placeholder="enter email..."
         className="form-input"
         />
       </div>

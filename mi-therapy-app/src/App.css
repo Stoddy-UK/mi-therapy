@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 #root {
   height: 100vh;
   width: 100vw;
   display: flexbox;
-  
+  color: #34252F;
+  font-family: poppins;
 }
 
 /* OPENING PAGE */
@@ -14,7 +16,7 @@
 }
 
 .top-bar {
-  background-color: palegoldenrod;
+  background-color: seagreen;
   width: 100%;
   height: 110px;
   align-self: center;
@@ -31,6 +33,7 @@
 }
 
 .top-bar h1 {
+  color: #34252F;
   margin: 20px 40px;
   align-self: center;
 }
@@ -41,23 +44,30 @@
 }
 
 .top-bar #top-links {
+  color: #34252F;
   display: flex;
   margin: 20px 40px;
   align-self: center;
   gap: 50px;
 }
 
+.top-bar #top-links .link {
+  font-size: 30px;
+  color: #34252F;
+  text-decoration: none;
+}
+
 .top-bar #login-btns button {
   height: 40px;
   width: 70px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid grey;
   margin: 0 0 0 30px;
 }
 
 #welcome {
-  background-color: lightgoldenrodyellow;
-  border: 1px solid lightgoldenrodyellow;
+  background-color: white;
+  border: 1px solid #A4B494;
   height: 70vh;
   display: flex;
   flex-direction: row;
@@ -65,6 +75,7 @@
 }
 
 #welcome-msg {
+  background-color: #BEC5AD;
   border-radius: 5px;
   margin-top: 50px;
   width: 35%;
@@ -77,6 +88,8 @@
 }
 
 #login-reg {
+  color: #34252F;
+  background-color: #BEC5AD;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -136,6 +149,7 @@
 }
 
 #home-btn-list {
+  color: #34252F;
   margin: 50px 0 0 -10px;
   display: flex;
   flex-direction: column;
@@ -144,11 +158,20 @@
 }
 
 .home-btn {
+  display: flex;
+  align-items: center;
+  background-color: #BEC5AD;
   padding: 20px;
   text-align: left;
   border: 1px solid grey;
   border-radius: 25px;
   height: 50px;
+}
+
+.home-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #34252F;
 }
 
 #today {
@@ -170,6 +193,7 @@
 /* LOGOUT  */
 
 #logout-box {
+  border-radius: 10px;
   align-self: center;
   border: 1px solid grey;
   display: flex;
@@ -187,6 +211,39 @@
   border-radius: 8px;
   margin-top: 40px;
   justify-self: center;
-  height: 30px;
-  width: 80px;
+  height: 40px;
+  width: 200px;
+}
+
+/* MY PROFILE */
+
+#profile-box {
+  margin: 20px 0 0 -550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+  width: 40vw;
+  gap: 30px;
+}
+
+.profile-div {
+  box-sizing: border-box;
+}
+
+.profile-item {
+  background-color: #BEC5AD;
+  list-style-type: none;
+  margin-top: 7px;
+  border: 1px solid grey;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.profile-item p {
+  margin: 12px 0 0 30px;
+}
+
+.profile-lable {
+  margin-left: 20px;
 }

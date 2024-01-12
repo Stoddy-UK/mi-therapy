@@ -13,31 +13,37 @@ import Accounts from './componants/accounts';
 
 function App() {
   const [mock, setMock] = useState([
-    {name: "Alice Stoddart",
+    {firstName: "Alice",
+    lastName: "Stoddart",
+    email: "alice@mail.com",
     password: "Stoddy"}
   ]);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loginForm, setLoginForm] = useState(true)
+  const [current, setCurrent] = useState([])
   
 
   return (
     <Router>
       <Routes >
-        <Route path='/' element={<Layout  
+        <Route path='/' element={<Layout 
+        setIsLoggedIn={setIsLoggedIn} 
         setLoginForm={setLoginForm}
         isLoggedIn={isLoggedIn}
         />} >
           <Route index element={<OpenScreen 
+          current={current} setCurrent={setCurrent}
           isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
           loginForm={loginForm} setLoginForm={setLoginForm}
           mock={mock} setMock={setMock}
           s
           />} />
           <Route path='home' element={<Dashboard 
+          current={current}
           mock={mock}
           />} />
-          <Route path='me' element={<Profile />} />
-          <Route path='logout' element={<Logout setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path='me' element={<Profile current={current}/>} />
+          <Route path='logout' element={<Logout setIsLoggedIn={setIsLoggedIn} setCurrent={setCurrent} />} />
           <Route path='clientform' element={<NewClient />} />
           <Route path='clients' element={<ClientList />} />
           <Route path='calender' element={<Calender />} />
