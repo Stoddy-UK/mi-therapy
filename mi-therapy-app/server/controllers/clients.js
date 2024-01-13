@@ -1,10 +1,15 @@
 const Client = require('../models/clients')
 
 exports.createClient = async (req,res)  => {
+  const newClient = req.body;
+  console.log(newClient,'new user')
   try {
-    return res.body('create')
+    const newProfile = await Client.create(newClient)
+    console.log(newProfile,'new profile')
+    res.status(200).json(newProfile)
   } catch(error) {
-    console.log(error)
+    res.status(400).json({error: error.message})
+    console.log(error, 'POST error')
   }
 }
 

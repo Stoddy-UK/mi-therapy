@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+
 #root {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flexbox;
   color: #34252F;
   font-family: poppins;
 }
 
+body {
+  height: 100vh;
+}
 /* OPENING PAGE */
 
 #opening-screen{
@@ -16,7 +21,7 @@
 }
 
 .top-bar {
-  background-color: seagreen;
+  background-color: #F46036;
   width: 100%;
   height: 110px;
   align-self: center;
@@ -33,12 +38,15 @@
 }
 
 .top-bar h1 {
-  color: #34252F;
+  font-size: 40px;
+  font-family: 'Playfair Display', serif;
+  color: #414770;
   margin: 20px 40px;
   align-self: center;
 }
 
 .top-bar #login-btns {
+  font-family: poppins;
   margin: 20px 40px;
   align-self: center;
 }
@@ -53,33 +61,36 @@
 
 .top-bar #top-links .link {
   font-size: 30px;
-  color: #34252F;
+  color: white;
   text-decoration: none;
 }
+
+.top-bar #top-links .link:hover {color: #414770;}
 
 .top-bar #login-btns button {
   height: 40px;
   width: 70px;
-  border-radius: 15px;
-  border: 1px solid grey;
+  border-radius: 10px;
+  border: 1px solid #372248;
   margin: 0 0 0 30px;
 }
 
 #welcome {
-  background-color: white;
-  border: 1px solid #A4B494;
-  height: 70vh;
+  background-image: url('https://wpcluster.dctdigital.com/myweekly/wp-content/uploads/sites/9/2019/08/iStock-964271698-therapy-main-x.jpg');
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
 #welcome-msg {
-  background-color: #BEC5AD;
+  opacity: 0.75;
+  border: 1px solid #372248;
+  background-color: white;
   border-radius: 5px;
   margin-top: 50px;
   width: 35%;
-  height: 80%;
+  height: 40%;
   box-shadow: 0px 1px 2px gray;
 }
 
@@ -88,18 +99,21 @@
 }
 
 #login-reg {
+  opacity: 0.75;
+  border: 1px solid #372248;
   color: #34252F;
-  background-color: #BEC5AD;
+  background-color: white;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   margin-top: 50px;
   width: 35%;
-  height: 80%;
+  height: 40%;
   box-shadow: 0px 1px 2px gray;
 }
 
 /* FORMS */
+/* user */
 
 .form {
   height: auto;
@@ -125,10 +139,12 @@
 .form .input-field .form-input {
   height: 30px;
   border-radius: 7px;
-  border: 1px solid grey;
+  border: 1px solid #414770;
 }
 
 .form .form-btn {
+  background-color: #F46036;
+  color: white;
   align-self: center;
   height: 30px;
   width: 80%;
@@ -136,6 +152,66 @@
   border-radius: 7px;
   border: 1px solid grey;
 }
+.form-btn:hover {background-color: #414770;}
+
+/* cient */
+
+#client-main {
+  background-image: url('https://wpcluster.dctdigital.com/myweekly/wp-content/uploads/sites/9/2019/08/iStock-964271698-therapy-main-x.jpg');
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#p-details {
+  font-size: 20px;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+
+#client-form {
+  justify-self: center;
+  align-self: center;
+  justify-content: space-around;
+  height: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.client-form-box {
+  height: 60vh;
+  width: 45%;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
+
+.client-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-input {
+  opacity: 0.75;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid #414770;
+}
+
+#new-client-btn {
+  background-color: #F46036;
+  color: white;
+  align-self: center;
+  height: 30px;
+  width: 300px;
+  margin: 20px;
+  border-radius: 7px;
+  border: 1px solid grey;
+}
+
+#new-client-btn:hover {background-color: #414770;}
 
 /* HOME  */
 
@@ -158,12 +234,13 @@
 }
 
 .home-btn {
+  opacity: 0.75;
   display: flex;
   align-items: center;
-  background-color: #BEC5AD;
+  background-color: white;
   padding: 20px;
   text-align: left;
-  border: 1px solid grey;
+  border: 1px solid #5B85AA;
   border-radius: 25px;
   height: 50px;
 }
@@ -193,9 +270,12 @@
 /* LOGOUT  */
 
 #logout-box {
+  z-index: 1;
+  opacity: 0.75;
   border-radius: 10px;
   align-self: center;
-  border: 1px solid grey;
+  background-color: white;
+  border: 1px solid #414770;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,7 +312,8 @@
 }
 
 .profile-item {
-  background-color: #BEC5AD;
+  opacity: 0.75;
+  background-color: white;
   list-style-type: none;
   margin-top: 7px;
   border: 1px solid grey;

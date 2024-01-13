@@ -12,6 +12,7 @@ function OpenScreen ({isLoggedIn, setIsLoggedIn, loginForm, current, setCurrent,
       <div id='welcome'>
         <div id="welcome-msg">
           <p>Welcome to MiTherapy</p>
+          
         </div>
         <div id="login-reg">
           {loginForm===true?
@@ -19,11 +20,8 @@ function OpenScreen ({isLoggedIn, setIsLoggedIn, loginForm, current, setCurrent,
             setCurrent={setCurrent}
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
-            mock={mock}
-            setMock={setMock}
             />: 
             <Register 
-            mock={mock} setMock={setMock}
             setCurrent={setCurrent}
             setIsLoggedIn={setIsLoggedIn}
             />}

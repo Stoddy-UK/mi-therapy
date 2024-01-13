@@ -13,7 +13,7 @@ function Dashboard ({current}) {
       <nav id="home-nav">
         <h2 id="greet">Welcome {currentUser[0].firstName}</h2>
         <ul id="home-btn-list">
-          <button className="home-btn"><Link className="home-link" to="clientform">Add a new client</Link> </button>
+          <button className="home-btn"><Link className="home-link" to="client-form">Add a new client</Link> </button>
           <button className="home-btn"><Link className="home-link" to="clients">View current client list</Link> </button>
           <button className="home-btn"><Link className="home-link" to="calender">Calender</Link> </button>
           <button className="home-btn"><Link className="home-link" to="accounts">Accounts</Link> </button>

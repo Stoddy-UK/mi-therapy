@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-function Register ({mock, setMock, setCurrent, setIsLoggedIn}) {
+function Register ({setCurrent, setIsLoggedIn}) {
 
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState('')
@@ -15,7 +15,6 @@ function Register ({mock, setMock, setCurrent, setIsLoggedIn}) {
     const lName = fullName[1];
     setFirstName(fName);
     setLastName(lName)
-    const nameNow = firstName + lastName;
   }
 
   const handleSubmit = async (e) => {
@@ -41,10 +40,7 @@ function Register ({mock, setMock, setCurrent, setIsLoggedIn}) {
       console.log(profile.error)
     }
     if (response.ok) {
-
-    const newArr = mock.slice();
     
-    setMock(newArr)
     setCurrent([createUser]);
     setIsLoggedIn(true)
 

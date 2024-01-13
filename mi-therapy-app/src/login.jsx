@@ -1,26 +1,36 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import appService from "./Api-service";
 
-function Login ({setCurrent, setIsLoggedIn, mock, setMock}) {
+function Login ({setCurrent, setIsLoggedIn}) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   let navigate = useNavigate();
   
-  const tryLogin =  (e) => {
+  const tryLogin = async (e) => {
     e.preventDefault();
 
-    const details = [{
+    const user = {
       email: email,
       password: password
-    }]
-    
-    const shallowMock = mock.slice();
-    const findUser = shallowMock.filter((detail) => detail.email !== details.email)
-    
-    if (findUser.password == details.password) {
+    }
+    console.log(user,'-- user obj')
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const profile = await response.json();
+    if (!response.ok) {
+      console.log(profile.error)
+    }
+    if (response.ok) {
+      console.log(profile,'-- res.body')
       setIsLoggedIn(true);
-      setCurrent(findUser)
+      setCurrent([profile.userLogin])
     } 
     setEmail('')
     setPassword('')

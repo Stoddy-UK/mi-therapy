@@ -4,7 +4,7 @@ const clientEvents = require('./controllers/clients')
 const userEvents = require('./controllers/users')
 
 // client routes
-router.post('/client', clientEvents.createClient)
+router.post('/client-form', clientEvents.createClient)
 
 router.get('/client', clientEvents.clientProfile)
 
