@@ -173,11 +173,19 @@ body {
   justify-self: center;
   align-self: center;
   justify-content: space-around;
+  align-items: center;
   height: auto;
   width: 80%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
+}
+
+#inner-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .client-form-box {
@@ -221,12 +229,12 @@ body {
 }
 
 #greet {
-  margin: 30px 0 -20px 30px;
+  margin: 50px 0 -20px 30px;
 }
 
 #home-btn-list {
   color: #34252F;
-  margin: 50px 0 0 -10px;
+  margin: 70px 0 0 -10px;
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -256,20 +264,21 @@ body {
   flex-direction: column;
   align-items: center;
   align-self: center;
-  margin: -30px 80px 0 -50px;
-  height: 60vh;
-  width: 30vw;
+  margin: -200px 80px 0 -50px;
+  height: 70vh;
+  width: 50vw;
 }
 
 #week-ahead {
   border: 1px solid;
-  height: 80%;
+  height: 90%;
   width: 100%;
 }
 
 /* LOGOUT  */
 
 #logout-box {
+  margin-top: -150px;
   z-index: 1;
   opacity: 0.75;
   border-radius: 10px;
@@ -327,4 +336,81 @@ body {
 
 .profile-lable {
   margin-left: 20px;
+}
+
+/* CLIENT LIST */
+
+.client-list {
+  border: 1px solid #372248;
+  width: 45vw;
+  height: 70vh;
+  margin-top: 50px;
+  background-color: white;
+  opacity: 0.75;
+  overflow: scroll;
+}
+
+.client-list #client-list-box {
+  margin: 0px;
+  overflow: scroll;
+}
+
+#client-detail-box {
+  display: flex;
+  flex-direction: column;
+}
+
+#client-deet-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.client-list ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-list li {
+  margin: 10px;
+}
+
+#del-client {
+  border: 1px solid #372248;
+  height: 40px;
+  width: 300px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  align-self: center;
+}
+
+#client-PH {
+  align-self: center;
+  justify-self: center;
+}
+
+/* client item */
+
+.clientItem {
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 1px 2px gray;
+  justify-content: space-between;
+}
+
+.clientItem:hover {
+  background-color: #5B85AA;
+}
+
+.client-name {
+  margin-left: 30px;
+}
+
+.delete-client {
+  align-self: center;
+  height: 50%;
+  margin-right: 40px;
 }

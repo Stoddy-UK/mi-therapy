@@ -2,10 +2,8 @@ const User = require('../models/users')
 
 exports.createUser = async (req,res)  => {
   const newUser = req.body;
-  console.log(newUser,'new user')
   try {
     const newProfile = await User.create(newUser)
-    console.log(newProfile,'new profile')
     res.status(200).json(newProfile)
   } catch(error) {
     res.status(400).json({error: error.message})

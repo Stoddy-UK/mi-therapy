@@ -2,10 +2,8 @@ const Client = require('../models/clients')
 
 exports.createClient = async (req,res)  => {
   const newClient = req.body;
-  console.log(newClient,'new user')
   try {
     const newProfile = await Client.create(newClient)
-    console.log(newProfile,'new profile')
     res.status(200).json(newProfile)
   } catch(error) {
     res.status(400).json({error: error.message})
@@ -15,9 +13,12 @@ exports.createClient = async (req,res)  => {
 
 exports.clientProfile = async (req,res)  => {
   try {
-    return res.body('profile')
+    const body = req.body;
+    const userId = body[0]._id;
+    const clientFolder = await Client.find({therapistId: userId })
+    res.status(201).json(clientFolder);
   } catch(error) {
-    console.log(error)
+    res.status(400).json({error: 'request not worked'})
   }
 }
 
@@ -30,9 +31,12 @@ exports.updateClient = async (req,res)  => {
 }
 
 exports.deleteClient = async (req,res)  => {
+  const { id } = req.params
   try {
-    return res.body('delete')
+    const del = await Client.findOneAndDelete({_id: id})
+    console.log(id, '-- id (server)')
+    res.status(200).json(del)
   } catch(error) {
-    console.log(error)
+    res.status(400).json({error: 'delete not processed'})
   }
 }

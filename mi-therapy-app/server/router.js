@@ -6,11 +6,11 @@ const userEvents = require('./controllers/users')
 // client routes
 router.post('/client-form', clientEvents.createClient)
 
-router.get('/client', clientEvents.clientProfile)
+router.post('/clients', clientEvents.clientProfile)
 
 router.put('/client', clientEvents.updateClient)
 
-router.delete('/client', clientEvents.deleteClient)
+router.delete('/clients/:id', clientEvents.deleteClient)
 
 // user routes
 router.post('/user', userEvents.createUser)

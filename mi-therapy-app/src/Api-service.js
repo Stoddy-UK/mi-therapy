@@ -58,4 +58,17 @@ appService.newClient = async (client) => {
     .catch((error) => console.log(error))
 }
 
+appService.getClients = (userId) => {
+  return fetch(`${BASE_URL}/clients`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userId)
+  })
+  .then((res) => res.json())
+  .catch((error) => console.log(error))
+}
+
 export default appService;
