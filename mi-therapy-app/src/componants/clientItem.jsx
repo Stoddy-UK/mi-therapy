@@ -2,7 +2,7 @@ import { useState } from "react"
 
 
 
-function ClientItem ({ el, thisClient, setThisClient }) {
+function ClientItem ({ el, setThisClient }) {
   
 
   const handleClick = () => {

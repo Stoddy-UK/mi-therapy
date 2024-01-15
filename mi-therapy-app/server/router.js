@@ -8,7 +8,7 @@ router.post('/client-form', clientEvents.createClient)
 
 router.post('/clients', clientEvents.clientProfile)
 
-router.put('/client', clientEvents.updateClient)
+router.patch('/clients/:id', clientEvents.updateClient)
 
 router.delete('/clients/:id', clientEvents.deleteClient)
 
@@ -21,7 +21,7 @@ router.post('/logout', userEvents.logout)
 
 router.get('/me', userEvents.userProfile)
 
-router.put('/update-user', userEvents.updateUser)
+router.patch('/me/:id', userEvents.updateUser)
 
 router.delete('/del-user', userEvents.deleteUser)
 

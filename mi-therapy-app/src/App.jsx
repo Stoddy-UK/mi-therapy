@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom' 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' 
 import './App.css'
 import Dashboard from './dashboard';
 import Layout from './layout';
@@ -44,13 +44,11 @@ function App() {
           current={current} setCurrent={setCurrent}
           isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
           loginForm={loginForm} setLoginForm={setLoginForm}
-          
-          s
           />} />
           <Route path='home' element={<Dashboard 
           current={current}
           />} />
-          <Route path='me' element={<Profile current={current}/>} />
+          <Route path='me' element={<Profile current={current} setCurrent={setCurrent}/>} />
           <Route path='logout' element={<Logout setIsLoggedIn={setIsLoggedIn} setCurrent={setCurrent} />} />
           <Route path='home/client-form' element={<NewClient 
             current={current} 

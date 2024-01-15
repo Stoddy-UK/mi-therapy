@@ -28,7 +28,6 @@ function Login ({setCurrent, setIsLoggedIn}) {
       console.log(profile.error)
     }
     if (response.ok) {
-      console.log(profile,'-- res.body')
       setIsLoggedIn(true);
       setCurrent([profile.userLogin])
     } 

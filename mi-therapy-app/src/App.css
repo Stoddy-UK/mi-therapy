@@ -317,6 +317,8 @@ body {
 }
 
 .profile-div {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
@@ -334,8 +336,31 @@ body {
   margin: 12px 0 0 30px;
 }
 
+#edit-state {
+  font-size: 15px;
+}
+
 .profile-lable {
+  color: #414770;
+  font-size: 20px;
   margin-left: 20px;
+}
+
+.edit-profile {
+  margin-left: -20px;
+  font-size: 30px;
+}
+.edit-profile:hover{color: #F46036;}
+
+.edit-btn-box {
+  width: 100px;
+  height: 29vw;
+  margin: 60px -50px 0 -1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 /* CLIENT LIST */
@@ -409,8 +434,20 @@ body {
   margin-left: 30px;
 }
 
+.button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#del-client {
+  height: 30px;
+  width: 200px;
+}
+#del-client:hover{background-color: #F46036;}
+
 .delete-client {
   align-self: center;
   height: 50%;
-  margin-right: 40px;
+  margin: 0 40px 0 0;
 }

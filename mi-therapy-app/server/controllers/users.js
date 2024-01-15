@@ -35,7 +35,7 @@ exports.logout = async (req,res)  => {
 exports.userProfile = async (req,res)  => {
   try {
     const {email, password} = req.body;
-
+    console.log('im here')
     const userLogin = await User.findOne({email, password})
     res.json(userLogin)
   } catch(error) {
@@ -45,11 +45,10 @@ exports.userProfile = async (req,res)  => {
 
 exports.updateUser = async (req,res)  => {
   try {
-    const profile = req.body;
-    console.log(profile, 'profile')
-    const filter = { _id: profile._id};
-    const updateData = {profile}
-    const update = await User.findOneAndUpdate(filter, updateData)
+    const { id } =req.params
+    const update = await User.findOneAndUpdate({_id: id}, {
+      ...req.body
+    })
     res.status(200).json(update)
   } catch(error) {
     console.log(error)
