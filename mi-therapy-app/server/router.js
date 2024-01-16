@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const clientEvents = require('./controllers/clients')
 const userEvents = require('./controllers/users')
+const sessionEvents = require('./controllers/session')
 
 // client routes
 router.post('/client-form', clientEvents.createClient)
@@ -25,5 +26,10 @@ router.patch('/me/:id', userEvents.updateUser)
 
 router.delete('/del-user', userEvents.deleteUser)
 
+// session routes
+
+router.post('/clients/create', sessionEvents.bookTime)
+
+router.post('/sessions', sessionEvents.getSessions)
 
 module.exports = router

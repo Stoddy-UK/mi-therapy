@@ -33,7 +33,6 @@ appService.newUser = async (user) => {
 }
 
 appService.login = (user) => {
-  console.log(JSON.stringify(user),'--user')
   return fetch(`${BASE_URL}/login`, {
     method: 'POST',
     // credentials: 'include',
@@ -66,6 +65,34 @@ appService.getClients = (userId) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(userId)
+  })
+  .then((res) => res.json())
+  .catch((error) => console.log(error))
+}
+
+appService.createNewSession = async(newSess) => {
+  console.log(newSess,'--new sess services')
+  return fetch(`${BASE_URL}/clients/create`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newSess)
+  })
+  .then((res) => res.json())
+  .catch((error) => console.log(error))
+}
+
+appService.getSessions = async (currentUser) => {
+  console.log(currentUser,'current user')
+  return fetch(`${BASE_URL}/sessions`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(currentUser)
   })
   .then((res) => res.json())
   .catch((error) => console.log(error))

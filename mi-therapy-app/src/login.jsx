@@ -15,7 +15,6 @@ function Login ({setCurrent, setIsLoggedIn}) {
       email: email,
       password: password
     }
-    console.log(user,'-- user obj')
     const response = await fetch('http://localhost:3000/login', {
       method: 'POST',
       body: JSON.stringify(user),

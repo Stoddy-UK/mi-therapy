@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
+import React from "react";
+import { InlineWidget } from "react-calendly";
+import Calender from "./componants/calender";
 
 
 function Dashboard ({current}) {
@@ -21,7 +24,9 @@ function Dashboard ({current}) {
       </nav>
       <div id="today">
         <h2>What this week looks like...</h2>
-        <div id="week-ahead"></div>
+        <div id="week-ahead">
+          
+        </div>
       </div>
     </div>
     

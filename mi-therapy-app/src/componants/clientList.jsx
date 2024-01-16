@@ -1,14 +1,20 @@
+import { Link } from "react-router-dom"
 import ClientItem from "./clientItem"
 import { useState } from "react"
 
-function ClientList ({ userClients, setUserClients }) {
+function ClientList ({ userClients, setUserClients, thisClient, setThisClient }) {
   const [edit, setEdit] = useState(false)
-  const [thisClient, setThisClient] = useState()
+  
   const client = thisClient
 
   const editClick = () => {
     setEdit(true)
   }
+
+  const newSessionClick = (e) => {
+
+  }
+
   const saveClick = () => {
     setEdit(false)
     const id = client._id
@@ -71,7 +77,7 @@ function ClientList ({ userClients, setUserClients }) {
       const shallow = userClients.slice();
       const newArr = shallow.filter((el) => el._id !== id);
       setUserClients(newArr)
-      setThisClient('')
+      setThisClient()
     }
   }
 
@@ -104,7 +110,11 @@ function ClientList ({ userClients, setUserClients }) {
               </ul> 
               <div className="button-box">
                 <button id="del-client" onClick={editClick}>edit client details</button>
-                <button id="del-client" type="submit" onClick={()=>handleClick(client)}>delete client</button>
+                {/* <button id="del-client" type="submit" onClick={()=>newSessionClick(client)}>create a session</button> */}
+                <button id="del-client" type="submit"><Link 
+                  to="create">create a session
+                  </Link></button>
+
               </div>
             </div>: 
             <p id="client-PH">please sellect a client from your list.</p> }

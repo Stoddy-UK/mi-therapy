@@ -11,13 +11,30 @@ import ClientList from './componants/clientList';
 import Calender from './componants/calender';
 import Accounts from './componants/accounts';
 import appService from './Api-service';
+import BookSession from './componants/bookSession';
 
 function App() {
-
+  const [clientSessions, setClientSessions] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loginForm, setLoginForm] = useState(true)
   const [current, setCurrent] = useState([])
   const [userClients, setUserClients] = useState([])
+  const [session, setSessions] = useState([])
+  const [thisClient, setThisClient] = useState()
+
+  useEffect(()=>{
+    const currentUser = current.slice();
+    const getSession = async () => {
+    const res = await appService.getSessions(currentUser);
+      if (res) {
+        setClientSessions(res)
+        console.log(res,'--res')
+      } else {
+        console.log('we lost a lot of good sessions that day!')
+      }
+    }
+    getSession()
+  },[current])
   
   useEffect(()=>{
     const getData = async () => {
@@ -25,6 +42,7 @@ function App() {
       const res = await appService.getClients(userId);
       if (res) {
         setUserClients(res)
+        console.log('Succesful session raid!')
       } else {
         console.log('it went tits-up')
       }
@@ -36,17 +54,17 @@ function App() {
     <Router>
       <Routes >
         <Route path='/' element={<Layout 
-        setIsLoggedIn={setIsLoggedIn} 
-        setLoginForm={setLoginForm}
-        isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn} 
+          setLoginForm={setLoginForm}
+          isLoggedIn={isLoggedIn}
         />} >
           <Route index element={<OpenScreen 
-          current={current} setCurrent={setCurrent}
-          isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-          loginForm={loginForm} setLoginForm={setLoginForm}
+            current={current} setCurrent={setCurrent}
+            isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+            loginForm={loginForm} setLoginForm={setLoginForm}
           />} />
           <Route path='home' element={<Dashboard 
-          current={current}
+            current={current}
           />} />
           <Route path='me' element={<Profile current={current} setCurrent={setCurrent}/>} />
           <Route path='logout' element={<Logout setIsLoggedIn={setIsLoggedIn} setCurrent={setCurrent} />} />
@@ -54,9 +72,16 @@ function App() {
             current={current} 
             userClients={userClients} setUserClients={setUserClients} 
           />} />
-          <Route path='home/clients' element={<ClientList userClients={userClients} setUserClients={setUserClients} />} />
+          <Route path='home/clients' element={<ClientList 
+            userClients={userClients} setUserClients={setUserClients} 
+            thisClient={thisClient} setThisClient={setThisClient}
+          />} />
           <Route path='home/calender' element={<Calender />} />
           <Route path='home/accounts' element={<Accounts />} />
+          <Route path='home/clients/create' element={<BookSession 
+            thisClient={thisClient} setThisClient={setThisClient}
+            clientSessions={clientSessions} setClientSessions={setClientSessions}
+            />} />
         </Route>
       </Routes>
     </Router>
